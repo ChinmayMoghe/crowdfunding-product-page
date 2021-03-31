@@ -3,3 +3,16 @@ node_modules
 dist
 dist-ssr
 *.local
+.prettierignore
+# Avoid accidental upload of the Sketch and Figma design files
+#####################################################
+## Please do not remove lines 11 and 12 - thanks! 🙂 ##
+#####################################################
+*.sketch
+*.fig
+
+# Avoid accidental XD upload if you convert the design file
+###############################################
+## Please do not remove line 18 - thanks! 🙂 ##
+###############################################
+*.xd

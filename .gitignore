@@ -16,3 +16,4 @@ dist-ssr
 ## Please do not remove line 18 - thanks! 🙂 ##
 ###############################################
 *.xd
+*.log

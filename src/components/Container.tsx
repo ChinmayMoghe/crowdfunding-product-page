@@ -6,12 +6,7 @@ interface wrapperProps {
 }
 
 const Container: React.FC<wrapperProps> = ({ children }) => {
-  return (
-    <Grid>
-      This is a Layout wrapper
-      {children}
-    </Grid>
-  );
+  return <Grid>{children}</Grid>;
 };
 
 export default Container;

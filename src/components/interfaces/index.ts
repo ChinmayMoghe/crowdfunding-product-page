@@ -1,2 +1,3 @@
 import { GridItemProps } from './GridItemProps';
-export type { GridItemProps };
+import { RoundedButtonProps } from './RoundedButtonProps';
+export type { GridItemProps, RoundedButtonProps };

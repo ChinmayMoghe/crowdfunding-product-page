@@ -1,5 +1,4 @@
-import { GridLineProps } from './GridLineProps';
 export interface GridItemProps {
-  row: GridLineProps;
-  col: GridLineProps;
+  showBorder?: boolean;
+  hasBackgroundColor?: boolean;
 }

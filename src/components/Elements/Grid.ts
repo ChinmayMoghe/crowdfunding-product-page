@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const Grid = styled.div`
   width: 100vw;
-  min-height: 100%;
   background-color: ${(props) => props.theme.colors.background.body};
   display: grid;
   grid-template-columns: repeat(2, 12%) 1fr repeat(2, 12%);

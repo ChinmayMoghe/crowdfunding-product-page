@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { GridItem } from './elements';
 import { GridItemProps } from './interfaces';
+import { ProgressBar } from './elements';
 
 const Funding = styled(GridItem)`
   grid-row: 5/6;
@@ -36,27 +37,15 @@ const Items = styled.div`
   }
 `;
 
-const ContainerStyle = styled.div`
-  height: 10px;
-  width: 100%;
-  background-color: ${(props) => props.theme.colors.background.body};
-  border-radius: 10px;
-  width: 75%;
-  margin: 50px 0;
-`;
-
-const FillerStyle = styled.div`
-  height: 100%;
-  width: 50%;
-  border-radius: 10px;
-  background-color: ${(props) => props.theme.colors.primary.light};
-`;
-
 const ProjectFunding: React.FC = () => {
   const gridItemProps: GridItemProps = {
     hasBackgroundColor: true,
     showBorder: true,
   };
+  const getRndInteger = (min: number, max: number): number => {
+    return Math.floor(Math.random() * (max - min)) + min;
+  };
+  const [fundingProgress, setFundingProgress] = useState(getRndInteger(30, 50));
   return (
     <Funding {...gridItemProps}>
       <BackersDetails>
@@ -73,9 +62,11 @@ const ProjectFunding: React.FC = () => {
           <span>left</span>
         </Items>
       </BackersDetails>
-      <ContainerStyle>
-        <FillerStyle />
-      </ContainerStyle>
+      <ProgressBar
+        width={85}
+        height='10px'
+        completedPercent={fundingProgress}
+      />
     </Funding>
   );
 };

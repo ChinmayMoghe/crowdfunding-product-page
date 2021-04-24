@@ -12,7 +12,7 @@ const theme: DefaultTheme = {
     },
     neutral: {
       dark: 'hsl(0, 0%, 0%)',
-      light: 'hsl(0, 0%, 48%)',
+      light: 'hsl(0,0%,53%)',
     },
     background: {
       body: '#fafafa',

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { RoundedButton, GridItem, Logo, Switch } from './elements';
+import { RoundedButton, GridItem, Logo, Switch } from './common-elements';
 import { GridItemProps, RoundedButtonProps } from './interfaces';
 
 const Info = styled(GridItem)`

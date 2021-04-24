@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid } from './elements';
+import { Grid } from './common-elements';
 
 interface wrapperProps {
   children: React.ReactNode;

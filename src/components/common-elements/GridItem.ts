@@ -7,8 +7,7 @@ export const GridItem = styled.div<GridItemProps>`
   border-width: ${(props) =>
     props.showBorder ? props.theme.border.borderWidth : `0`};
   border-style: solid;
-  border-color: ${(props) =>
-    props.showBorder ? props.theme.colors.background.body : 'transparent'};
+  border-color: ${(props) => (props.showBorder ? `#f6f6f6` : 'transparent')};
   background-color: ${(props) =>
     props.hasBackgroundColor
       ? props.theme.colors.background.items

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { GridItem, Logo } from './elements';
+import { GridItem, Logo } from './common-elements';
 import { GridItemProps } from './interfaces';
 
 const NavbarContainer = styled(GridItem)`

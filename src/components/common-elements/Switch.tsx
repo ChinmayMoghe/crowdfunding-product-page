@@ -8,9 +8,10 @@ const CheckBoxWrapper = styled.div`
 `;
 
 const CheckBoxLabel = styled.label`
-  background-color: ${(props) => props.theme.colors.neutral.light};
-  color: ${(props) => props.theme.colors.background.items};
-  position: absolute;
+  background-color: #f4f4f4;
+  color: ${(props) => props.theme.colors.neutral.light};
+  font-weight: 700;
+  position: absolute;>[]
   left: 0;
   display: flex;
   justify-content: center;
@@ -43,8 +44,9 @@ const CheckBox = styled.input.attrs((props) => ({
   cursor: pointer;
   &:checked + ${CheckBoxLabel} {
     background-color: ${(props) => props.theme.colors.primary.light};
+    color: ${(props) => props.theme.colors.background.items};
     padding-right: calc(56px - 10px);
-    padding-left: 20px;
+    padding-left: 10px;
     &::before {
       content: url('src/images/icon-bookmarked.svg');
       left: 120px;

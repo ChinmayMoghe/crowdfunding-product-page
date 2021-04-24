@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { GridItem } from './elements';
+import { GridItem } from './common-elements';
 import { GridItemProps } from './interfaces';
-import { ProgressBar } from './elements';
+import { ProgressBar } from './common-elements';
 
 const Funding = styled(GridItem)`
   grid-row: 5/6;

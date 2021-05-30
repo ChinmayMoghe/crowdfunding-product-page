@@ -15,7 +15,7 @@ const theme: DefaultTheme = {
       light: 'hsl(0,0%,53%)',
     },
     background: {
-      body: '#fafafa',
+      body: '#e9e9e9',
       items: '#fff',
     },
   },

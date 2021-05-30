@@ -9,6 +9,7 @@ import {
 } from './components';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { theme } from './theme';
+import { MediaQueryProvider } from './components/context/MediaQueryProvider';
 
 const GlobalStyle = createGlobalStyle`
   *,
@@ -27,9 +28,15 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
+/*media queries for app*/
+const mediaQueries = {
+  mobile: '(max-width:375px)',
+  desktop: '(max-width:1440px) and (min-width:376px)',
+};
+
 const App = () => {
   return (
-    <>
+    <MediaQueryProvider queries={mediaQueries}>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Container>
@@ -40,7 +47,7 @@ const App = () => {
           <ProjectDescription />
         </Container>
       </ThemeProvider>
-    </>
+    </MediaQueryProvider>
   );
 };
 

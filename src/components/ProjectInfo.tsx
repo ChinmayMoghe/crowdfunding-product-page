@@ -18,7 +18,7 @@ const ProjectLogo = styled(Logo)`
 const ControlsWrapper = styled.div`
   width: 100%;
   display: flex;
-  margin: 20px 0;
+  margin: 2rem 0;
   justify-content: space-around;
 `;
 
@@ -29,8 +29,8 @@ const ProjectInfo: React.FC = () => {
   };
 
   const buttonProps: RoundedButtonProps = {
-    width: '170px',
-    height: '56px',
+    width: '17rem',
+    height: '5.6rem',
   };
 
   const switchProps = {

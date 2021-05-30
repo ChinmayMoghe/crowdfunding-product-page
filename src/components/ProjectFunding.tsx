@@ -17,7 +17,7 @@ const BackersDetails = styled.div`
   display: flex;
   justify-content: space-around;
   width: 75%;
-  margin-top: 50px;
+  margin-top: 2rem;
 `;
 
 const Items = styled.div`
@@ -25,15 +25,19 @@ const Items = styled.div`
   &:nth-of-type(even) {
     border-left: 1px solid #e8e8e8;
     border-right: 1px solid #e8e8e8;
-    padding: 0 20px;
-    margin: 0 20px;
+    padding: 0 2rem;
+    margin: 0 2rem;
   }
   & > span {
     display: inline-block;
     width: 100%;
+    font-size: 1.2rem;
+    color: ${(props) => props.theme.colors.neutral.light};
+    margin-top: 0.5rem;
   }
-  & > h2 {
-    margin-bottom: 10px;
+  & > strong {
+    font-size: 3rem;
+    margin-bottom: 1rem;
   }
 `;
 
@@ -50,21 +54,22 @@ const ProjectFunding: React.FC = () => {
     <Funding {...gridItemProps}>
       <BackersDetails>
         <Items>
-          <h2>$89,914</h2>
+          <strong>$89,914</strong>
           <span>of $100,000 backed</span>
         </Items>
         <Items>
-          <h2>5,007 </h2>
+          <strong>5,007 </strong>
           <span>total backers</span>
         </Items>
         <Items>
-          <h2>56 days</h2>
+          <strong>56 days</strong>
           <span>left</span>
         </Items>
       </BackersDetails>
       <ProgressBar
+        margin={'1rem 0 2rem 0'}
         width={85}
-        height='10px'
+        height='1rem'
         completedPercent={fundingProgress}
       />
     </Funding>

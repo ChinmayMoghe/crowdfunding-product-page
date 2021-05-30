@@ -4,6 +4,7 @@ import styled from 'styled-components';
 interface IProgessContainer {
   width: number;
   height: string;
+  margin: string;
 }
 
 interface IProgressFiller {
@@ -13,12 +14,11 @@ interface IProgressFiller {
 interface ProgressBarProps extends IProgessContainer, IProgressFiller {}
 
 const ContainerStyle = styled.div<IProgessContainer>`
-  height: 10px;
-  width: 100%;
+  height: ${(props) => props.height};
+  width: ${(props) => `${props.width}%`};
+  margin: ${(props) => props.margin};
   background-color: #d5d5d5;
   border-radius: 10px;
-  width: 75%;
-  margin: 50px 0;
 `;
 
 const FillerStyle = styled.div<IProgressFiller>`
@@ -32,9 +32,10 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
   completedPercent,
   width,
   height,
+  margin,
 }) => {
   return (
-    <ContainerStyle width={width} height={height}>
+    <ContainerStyle width={width} height={height} margin={margin}>
       <FillerStyle completedPercent={completedPercent} />
     </ContainerStyle>
   );

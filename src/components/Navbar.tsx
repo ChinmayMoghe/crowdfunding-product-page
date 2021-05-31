@@ -21,6 +21,21 @@ const CrowdFundLogo = styled(Logo)`
   max-width: 100%;
   height: auto;
 `;
+const Link = styled.a`
+  color: white;
+  font-size: 1.7rem;
+  display: inline-block;
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+`;
+
+const NavSection = styled.nav`
+  display: flex;
+  justify-content: space-between;
+  width: 20vw;
+`;
 
 const Navbar: React.FC = () => {
   const gridItemProps: GridItemProps = {
@@ -31,6 +46,11 @@ const Navbar: React.FC = () => {
   return (
     <NavbarContainer {...gridItemProps}>
       <CrowdFundLogo src='src/images/logo.svg' alt='crowdfund logo' />
+      <NavSection>
+        <Link>About</Link>
+        <Link>Discover</Link>
+        <Link>Get Started</Link>
+      </NavSection>
     </NavbarContainer>
   );
 };

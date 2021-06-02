@@ -25,6 +25,7 @@ const Link = styled.a`
   color: white;
   font-size: 1.7rem;
   display: inline-block;
+  transition: all 0.2s;
   &:hover {
     cursor: pointer;
     text-decoration: underline;

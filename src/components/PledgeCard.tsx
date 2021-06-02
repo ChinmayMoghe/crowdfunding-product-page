@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Grid, GridItem, RoundedButton } from './common-elements';
 
-const PledgeContainer = styled(Grid)`
+const PledgeContainer = styled(Grid)<{ isDisabled: boolean }>`
   width: 100%;
   border-radius: 5px;
   background-color: ${(props) => props.theme.colors.background.items};
@@ -11,6 +11,7 @@ const PledgeContainer = styled(Grid)`
   grid-template-columns: 3rem 2fr 3fr 2fr 3rem;
   grid-template-rows: 2rem 1fr 3fr 2fr 2rem;
   row-gap: 1rem;
+  opacity: ${(props) => (props.isDisabled ? 0.5 : 1)};
 `;
 
 const PledgeAmount = styled(GridItem)`
@@ -76,7 +77,7 @@ export const PledgeCard: React.FC<PledgeCardProps> = ({
   message,
 }) => {
   return (
-    <PledgeContainer>
+    <PledgeContainer isDisabled={left <= 0}>
       <PledgeTitle>{version}</PledgeTitle>
       <PledgeAmount>Pledge ${pledgeAmount} or more</PledgeAmount>
       <PledgeInfo>{message}</PledgeInfo>

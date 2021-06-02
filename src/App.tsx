@@ -10,6 +10,7 @@ import {
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { theme } from './theme';
 import { MediaQueryProvider } from './components/context/MediaQueryProvider';
+import Modal from './components/modal/Modal';
 
 const GlobalStyle = createGlobalStyle`
   *,
@@ -45,6 +46,7 @@ const App = () => {
           <ProjectInfo />
           <ProjectFunding />
           <ProjectDescription />
+          <Modal />
         </Container>
       </ThemeProvider>
     </MediaQueryProvider>

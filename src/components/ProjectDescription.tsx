@@ -5,8 +5,6 @@ import { GridItemProps } from './interfaces';
 import { PledgeCard } from './PledgeCard';
 
 const Description = styled(GridItem)`
-  grid-row-start: 6;
-  grid-column: 3/ 4;
   display: flex;
   justify-content: center;
 `;
@@ -24,6 +22,8 @@ const ProjectDescription: React.FC = () => {
   const gridItemProps: GridItemProps = {
     showBorder: true,
     hasBackgroundColor: true,
+    gridRow: '6',
+    gridCol: '3/4',
   };
   const getPledgeCards = () => {
     const PledgeCardsDetails = [

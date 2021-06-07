@@ -3,28 +3,20 @@ import styled from 'styled-components';
 import { Grid, GridItem, RoundedButton } from './common-elements';
 
 const PledgeContainer = styled(Grid)<{ isDisabled: boolean }>`
-  width: 100%;
   border-radius: 5px;
   background-color: ${(props) => props.theme.colors.background.items};
   border: 1px solid #dfdfdf;
   margin-top: 4rem;
-  grid-template-columns: 3rem 2fr 3fr 2fr 3rem;
-  grid-template-rows: 2rem 1fr 3fr 2fr 2rem;
-  row-gap: 1rem;
   opacity: ${(props) => (props.isDisabled ? 0.5 : 1)};
 `;
 
 const PledgeAmount = styled(GridItem)`
-  grid-row: 2/3;
-  grid-column: 4/5;
   place-self: center;
   justify-self: right;
   font-size: 1.2rem;
   color: ${(props) => props.theme.colors.primary.light};
 `;
 const PledgeInfo = styled(GridItem)`
-  grid-row: 3/4;
-  grid-column: 2/5;
   place-self: center;
   font-size: 1.2rem;
   line-height: 1.9;
@@ -77,10 +69,20 @@ export const PledgeCard: React.FC<PledgeCardProps> = ({
   message,
 }) => {
   return (
-    <PledgeContainer isDisabled={left <= 0}>
+    <PledgeContainer
+      width='100%'
+      rows='2rem 1fr 3fr 2fr 2rem'
+      columns='3rem 2fr 3fr 2fr 3rem'
+      rowGap='1rem'
+      isDisabled={left <= 0}
+    >
       <PledgeTitle>{version}</PledgeTitle>
-      <PledgeAmount>Pledge ${pledgeAmount} or more</PledgeAmount>
-      <PledgeInfo>{message}</PledgeInfo>
+      <PledgeAmount gridRow='2/3' gridCol='4/5'>
+        Pledge ${pledgeAmount} or more
+      </PledgeAmount>
+      <PledgeInfo gridRow='3/4' gridCol='2/5'>
+        {message}
+      </PledgeInfo>
       <ItemsLeft>
         <ItemCount>{left}</ItemCount>
         <span className='left-label'>left</span>

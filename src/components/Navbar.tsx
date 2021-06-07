@@ -2,24 +2,17 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { GridItem, Logo } from './common-elements';
 import { GridItemProps } from './interfaces';
+import { useMediaQuery, getLayout } from './context/MediaQueryProvider';
 
 const NavbarContainer = styled(GridItem)`
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  @media screen and (min-width: 376px) and (max-width: 1440px) {
-    grid-row: 1/2;
-    grid-column: 2/5;
-  }
-  @media screen and (max-width: 375px) {
-    grid-row: 1/2;
-    grid-column: 3/4;
-  }
+  align-items: center;
 `;
 
 const CrowdFundLogo = styled(Logo)`
   max-width: 100%;
   height: auto;
+  margin-right: auto;
 `;
 const Link = styled.a`
   color: white;
@@ -35,13 +28,21 @@ const Link = styled.a`
 const NavSection = styled.nav`
   display: flex;
   justify-content: space-between;
+  justify-self: flex-end;
   width: 20vw;
 `;
 
 const Navbar: React.FC = () => {
+  const mediaQuery = useMediaQuery();
+  const mediaColumns: Record<string, string> = {
+    mobile: '3/4',
+    desktop: '2/5',
+  };
   const gridItemProps: GridItemProps = {
     hasBackgroundColor: false,
     showBorder: false,
+    gridRow: '1/2',
+    gridCol: mediaColumns[getLayout(mediaQuery)],
   };
 
   return (

@@ -5,8 +5,6 @@ import { GridItemProps } from './interfaces';
 import { ProgressBar } from './common-elements';
 
 const Funding = styled(GridItem)`
-  grid-row: 5/6;
-  grid-column: 3/4;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -45,6 +43,8 @@ const ProjectFunding: React.FC = () => {
   const gridItemProps: GridItemProps = {
     hasBackgroundColor: true,
     showBorder: true,
+    gridRow: '5/6',
+    gridCol: '3/4',
   };
   const getRndInteger = (min: number, max: number): number => {
     return Math.floor(Math.random() * (max - min)) + min;

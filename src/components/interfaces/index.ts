@@ -1,3 +1,4 @@
 import { GridItemProps } from './GridItemProps';
 import { RoundedButtonProps } from './RoundedButtonProps';
-export type { GridItemProps, RoundedButtonProps };
+import { Matches } from './MediaQueryMatch';
+export type { GridItemProps, RoundedButtonProps, Matches };

@@ -1,30 +1,16 @@
-import React, {
-  createContext,
-  Fragment,
-  useContext,
-  useEffect,
-  useState,
-} from 'react';
-
-const defaultValue = {};
-const MediaQueryContext = createContext(defaultValue);
-
+import React, { createContext, useContext, useEffect, useState } from 'react';
+import { Matches } from '../interfaces/index';
 interface MediaQueryListInterface {
   [key: string]: MediaQueryList;
 }
 
-interface QueryInterface {
-  [key: string]: string;
-}
-
-interface Matches {
-  [key: string]: boolean;
-}
-
 interface MediaQueryProviderProps {
   children: React.ReactNode;
-  queries: QueryInterface;
+  queries: Record<string, string>;
 }
+
+const defaultValue = {};
+const MediaQueryContext = createContext<Partial<Matches>>(defaultValue);
 
 const MediaQueryProvider: React.FC<MediaQueryProviderProps> = ({
   children,
@@ -43,28 +29,22 @@ const MediaQueryProvider: React.FC<MediaQueryProviderProps> = ({
        - required when moving from potrait to landscape mode in mobile device
     */
     const handleMediaQuery = (): any => {
-      const updatedMatches = keys.reduce(
-        (acc: Matches, media: string): Matches => {
-          acc[media] = mediaQueryLists[media].matches;
-          return acc;
-        },
-        {}
-      );
+      const updatedMatches = keys.reduce<Matches>((acc, media) => {
+        acc[media] = mediaQueryLists[media].matches;
+        return acc;
+      }, {});
       setQueryMatch(updatedMatches);
     };
 
     /*Initial media query to check viewport - mobile or desktop*/
     if (window && window.matchMedia) {
-      const matches: Matches = keys.reduce(
-        (acc: Matches, media: string): Matches => {
-          if (media) {
-            mediaQueryLists[media] = window.matchMedia(queries[media]);
-            acc[media] = mediaQueryLists[media].matches;
-          }
-          return acc;
-        },
-        {}
-      );
+      const matches: Matches = keys.reduce<Matches>((acc, media) => {
+        if (media) {
+          mediaQueryLists[media] = window.matchMedia(queries[media]);
+          acc[media] = mediaQueryLists[media].matches;
+        }
+        return acc;
+      }, {});
       // set the media query match result in state
       setQueryMatch(matches);
       isEventListenerAttached = true;
@@ -80,7 +60,7 @@ const MediaQueryProvider: React.FC<MediaQueryProviderProps> = ({
   );
 };
 
-const useMediaQuery = () => {
+const useMediaQuery = (): Partial<Matches> => {
   const context = useContext(MediaQueryContext);
   if (context === defaultValue) {
     throw new Error(
@@ -90,4 +70,8 @@ const useMediaQuery = () => {
   return context;
 };
 
-export { useMediaQuery, MediaQueryProvider };
+const getLayout = (
+  mediaQuery: Partial<Partial<Record<string, Boolean>>>
+): string => Object.keys(mediaQuery).find((key) => mediaQuery[key]) || '';
+
+export { useMediaQuery, MediaQueryProvider, getLayout };

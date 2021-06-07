@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import { GridItemProps } from '../interfaces';
 
 export const GridItem = styled.div<GridItemProps>`
+  grid-row: ${(props) => props.gridRow};
+  grid-column: ${(props) => props.gridCol};
   border-radius: ${(props) =>
     props.showBorder ? props.theme.border.borderRadius : `0`};
   border-width: ${(props) =>

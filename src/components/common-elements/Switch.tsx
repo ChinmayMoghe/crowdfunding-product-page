@@ -32,7 +32,7 @@ const CheckBoxLabel = styled.label`
 `;
 
 const CheckBox = styled.input.attrs((props) => ({
-  type: props.type ? props.type : 'checkbox',
+  type: props.type || 'checkbox',
 }))`
   position: absolute;
   left: 0;
